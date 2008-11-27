@@ -7,7 +7,7 @@
 //
 
 #import "StartupCommand.h"
-#import "EmployeeAdminAppDelegate.h"
+#import "EmployeeAdminView.h"
 #import "ApplicationFacade.h"
 #import "UserListMediator.h"
 #import "UserProxy.h"
@@ -19,7 +19,7 @@
 -(void)execute:(id<INotification>)notification {
 	[facade registerProxy:[UserProxy proxy]];
 	
-	EmployeeAdminAppDelegate *app = [notification getBody];
+	EmployeeAdminView *app = [notification getBody];
 	ApplicationFacade *facade = [ApplicationFacade getInstance];
 	
 	[facade registerMediator:[NavigationMediator withWiewComponent:app.navigationController]];

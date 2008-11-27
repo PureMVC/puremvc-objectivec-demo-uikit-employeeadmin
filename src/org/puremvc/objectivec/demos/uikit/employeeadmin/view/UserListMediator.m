@@ -36,7 +36,7 @@ static NSString *NAME = @"UserListMediator";
 	
 	if ([[notification getName] isEqualToString:USER_ADDED] || [[notification getName] isEqualToString:USER_UPDATED]) {
 		[[self userListViewController].tableView reloadData];
-		[self sendNotification:POP_TO_ROOT];
+		[self sendNotification:SHOW_USER_LIST];
 	}
 }
 
@@ -47,7 +47,6 @@ static NSString *NAME = @"UserListMediator";
 -(void)onDelete:(UserVO *)userVO {}
 
 -(void)onNew {
-	NSLog(@"onNew");
 	[self sendNotification:NEW_USER];
 }
 

@@ -7,19 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UserListViewController.h"
-#import "UserFormViewController.h"
 
 @interface EmployeeAdminAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
-	UINavigationController *navigationController;
-	UserListViewController *userListViewController;
-	UserFormViewController *userFormViewController;
 }
 
 @property(nonatomic, retain) UIWindow *window;
-@property(nonatomic, retain) UINavigationController *navigationController;
-@property(nonatomic, retain) UserListViewController *userListViewController;
-@property(nonatomic, retain) UserFormViewController *userFormViewController;
 
 @end

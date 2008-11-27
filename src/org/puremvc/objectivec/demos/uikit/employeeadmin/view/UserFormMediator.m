@@ -49,7 +49,7 @@
 		[self userFormViewController].userVO = [[[UserVO alloc] init] autorelease];
 		[self userFormViewController].mode = ADD;
 	}
-	[self sendNotification:PUSH_USER_FORM body:[self userFormViewController]];
+	[self sendNotification:SHOW_USER_FORM body:[self userFormViewController]];
 }
 
 -(void)dealloc {

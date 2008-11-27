@@ -16,7 +16,7 @@
 }
 
 -(NSArray *)listNotificationInterests {
-	return [NSArray arrayWithObjects:PUSH_USER_FORM, POP_TO_ROOT, nil];
+	return [NSArray arrayWithObjects:SHOW_USER_FORM, SHOW_USER_LIST, nil];
 }
 
 -(UINavigationController *)navigationController {
@@ -25,10 +25,10 @@
 
 -(void)handleNotification:(id<INotification>)notification {
 	
-	if ([[notification getName] isEqualToString:PUSH_USER_FORM]) {
+	if ([[notification getName] isEqualToString:SHOW_USER_FORM]) {
 		[[self navigationController] pushViewController:[notification getBody] animated:YES];
 	}
-	if ([[notification getName] isEqualToString:POP_TO_ROOT]) {
+	if ([[notification getName] isEqualToString:SHOW_USER_LIST]) {
 		[[self navigationController] popToRootViewControllerAnimated:YES];
 	}
 }

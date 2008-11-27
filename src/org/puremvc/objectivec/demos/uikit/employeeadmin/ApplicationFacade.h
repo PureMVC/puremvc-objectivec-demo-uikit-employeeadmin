@@ -15,12 +15,14 @@
 #define USER_ADDED @"USER_ADDED"
 #define USER_UPDATED @"USER_UPDATED"
 
-#define PUSH_USER_FORM @"PUSH_USER_FORM"
-#define POP_TO_ROOT @"POP_TO_ROOT"
+#define SHOW_USER_FORM @"SHOW_USER_FORM"
+#define SHOW_USER_LIST @"SHOW_USER_LIST"
 
 @interface ApplicationFacade : Facade {
 
 }
+
++(ApplicationFacade *)getInstance;
 
 -(void)startup:(id)app;
 

@@ -15,6 +15,10 @@
 	[self sendNotification:STARTUP body:app];
 }
 
++(ApplicationFacade *)getInstance {
+	return [super getInstance];
+}
+
 -(void)initializeController {
 	[super initializeController];
 	[self registerCommand:STARTUP commandClassRef:[StartupCommand class]];

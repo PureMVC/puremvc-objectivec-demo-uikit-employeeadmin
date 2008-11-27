@@ -8,29 +8,22 @@
 
 #import "EmployeeAdminAppDelegate.h"
 #import "ApplicationFacade.h"
+#import "EmployeeAdminView.h"
 
 @implementation EmployeeAdminAppDelegate
 
-@synthesize window, navigationController, userListViewController, userFormViewController;
+@synthesize window;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
 	
-	self.navigationController = [[[UINavigationController alloc] init] autorelease];
-	self.userListViewController = [[[UserListViewController alloc] init] autorelease];
-	self.userFormViewController = [[[UserFormViewController alloc] init] autorelease];
-	
-	[navigationController pushViewController:userListViewController animated:NO];
-	[window addSubview:navigationController.view];
-	
-	[[ApplicationFacade getInstance] startup:self];
+	EmployeeAdminView *employeeAdminView = [[[EmployeeAdminView alloc] initWithFrame:[window frame]] autorelease];	
+	[window addSubview:employeeAdminView];
+	[[ApplicationFacade getInstance] startup:employeeAdminView];
     [window makeKeyAndVisible];
 }
 
 
 - (void)dealloc {
     self.window = nil;
-	self.navigationController = nil;
-	self.userListViewController = nil;
-	self.userFormViewController = nil;
     [super dealloc];
 }
