@@ -10,12 +10,13 @@
 
 
 @interface UserVO : NSObject {
-	NSString *username, *firstName, *lastName, *email, *password, *department;
+	NSString *username, *firstName, *lastName, *email, *password, *confirmPassword, *department;
 }
 
-@property(nonatomic, retain) NSString *username, *firstName, *lastName, *email, *password, *department;
+@property(nonatomic, retain) NSString *username, *firstName, *lastName, *email, *password, *confirmPassword, *department;
 
-+(id)withUserName:(NSString *)username firstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email password:(NSString *)password department:(NSString *)department;
++(id)withUserName:(NSString *)username firstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email password:(NSString *)password confirmPassword:(NSString *)confirmPassword department:(NSString *)department;
 -(NSString *)givenName;
+-(BOOL)isValid;
 
 @end

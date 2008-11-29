@@ -15,9 +15,9 @@
 	[super initializeProxy];
 	self.data = [NSMutableArray array];
 	self.proxyName = [UserProxy NAME];
-	[self addItem:[UserVO withUserName:@"lstooge" firstName:@"Larry" lastName:@"Stooge" email:@"larry@stooges.com" password:@"ijk456" department:@"Accounting"]];
-	[self addItem:[UserVO withUserName:@"cstooge" firstName:@"Curly" lastName:@"Stooge" email:@"curly@stooges.com" password:@"xyz987" department:@"Sales"]];
-	[self addItem:[UserVO withUserName:@"mstooge" firstName:@"Moe" lastName:@"Stooge" email:@"moe@stooges.com" password:@"abc123" department:@"Plant"]];
+	[self addItem:[UserVO withUserName:@"lstooge" firstName:@"Larry" lastName:@"Stooge" email:@"larry@stooges.com" password:@"ijk456" confirmPassword:@"ijk456" department:@"Accounting"]];
+	[self addItem:[UserVO withUserName:@"cstooge" firstName:@"Curly" lastName:@"Stooge" email:@"curly@stooges.com" password:@"xyz987" confirmPassword:@"xyz987" department:@"Sales"]];
+	[self addItem:[UserVO withUserName:@"mstooge" firstName:@"Moe" lastName:@"Stooge" email:@"moe@stooges.com" password:@"abc123" confirmPassword:@"abc123" department:@"Plant"]];
 }
 
 +(NSString *)NAME {

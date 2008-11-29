@@ -11,15 +11,16 @@
 
 @implementation UserVO
 
-@synthesize username, firstName, lastName, email, password, department;
+@synthesize username, firstName, lastName, email, password, confirmPassword, department;
 
-+(id)withUserName:(NSString *)username firstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email password:(NSString *)password department:(NSString *)department {
++(id)withUserName:(NSString *)username firstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email password:(NSString *)password confirmPassword:(NSString *)confirmPassword department:(NSString *)department {
 	UserVO *userVO = [[[UserVO alloc] init] autorelease];
 	userVO.username = username;
 	userVO.firstName = firstName;
 	userVO.lastName = lastName;
 	userVO.email = email;
 	userVO.password = password;
+	userVO.confirmPassword = confirmPassword;
 	userVO.department = department;
 	return userVO;
 }
@@ -28,12 +29,17 @@
 	return [NSString stringWithFormat:@"%@ %@", firstName, lastName];
 }
 
+-(BOOL)isValid {
+	return username != nil && password != nil && confirmPassword != nil && [password isEqualToString:confirmPassword];
+}
+
 -(void)dealloc {
 	self.username = nil;
 	self.firstName = nil;
 	self.lastName = nil;
 	self.email = nil;
 	self.password = nil;
+	self.confirmPassword = nil;
 	self.department = nil;
 	[super dealloc];
 }
