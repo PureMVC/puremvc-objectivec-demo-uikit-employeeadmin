@@ -22,9 +22,9 @@
 	EmployeeAdminView *app = [notification getBody];
 	ApplicationFacade *facade = [ApplicationFacade getInstance];
 	
-	[facade registerMediator:[NavigationMediator withWiewComponent:app.navigationController]];
-	[facade registerMediator:[UserListMediator withWiewComponent:app.userListViewController]];
-	[facade registerMediator:[UserFormMediator withWiewComponent:app.userFormViewController]];
+	[facade registerMediator:[NavigationMediator withViewComponent:app.navigationController]];
+	[facade registerMediator:[UserListMediator withViewComponent:app.userListViewController]];
+	[facade registerMediator:[UserFormMediator withViewComponent:app.userFormViewController]];
 }
 
 @end
