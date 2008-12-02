@@ -18,6 +18,4 @@
 
 @property(nonatomic, retain) UserProxy *userProxy;
 
--(UserListViewController *)userListViewController;
-
 @end

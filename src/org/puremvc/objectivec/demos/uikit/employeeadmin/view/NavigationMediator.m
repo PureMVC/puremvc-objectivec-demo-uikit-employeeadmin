@@ -19,17 +19,17 @@
 	return [NSArray arrayWithObjects:SHOW_USER_FORM, SHOW_USER_LIST, nil];
 }
 
--(UINavigationController *)navigationController {
+-(UINavigationController *)getViewComponent {
 	return viewComponent;
 }
 
 -(void)handleNotification:(id<INotification>)notification {
 	
 	if ([[notification getName] isEqualToString:SHOW_USER_FORM]) {
-		[[self navigationController] pushViewController:[notification getBody] animated:YES];
+		[self.viewComponent pushViewController:[notification getBody] animated:YES];
 	}
 	if ([[notification getName] isEqualToString:SHOW_USER_LIST]) {
-		[[self navigationController] popToRootViewControllerAnimated:YES];
+		[self.viewComponent popToRootViewControllerAnimated:YES];
 	}
 }
 

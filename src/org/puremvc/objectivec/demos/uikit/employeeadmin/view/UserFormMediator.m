@@ -12,13 +12,13 @@
 
 @synthesize userProxy;
 
--(void)initializeMediator {
-	self.userProxy = [facade retrieveProxy:[UserProxy NAME]];
-	[self userFormViewController].delegate = self;
+-(UserFormViewController *)getViewComponent {
+	return viewComponent;
 }
 
--(UserFormViewController *)userFormViewController {
-	return viewComponent;
+-(void)initializeMediator {
+	self.userProxy = [facade retrieveProxy:[UserProxy NAME]];
+	self.viewComponent.delegate = self;
 }
 
 +(NSString *)NAME {
@@ -41,15 +41,15 @@
 
 -(void)handleNotification:(id<INotification>)notification {
 	
-	[self userFormViewController].view = nil;
+	self.viewComponent.view = nil;
 	if ([[notification getName] isEqualToString:USER_SELECTED]) {
-		[self userFormViewController].userVO = [notification getBody];
-		[self userFormViewController].mode = EDIT;
+		self.viewComponent.userVO = [notification getBody];
+		self.viewComponent.mode = EDIT;
 	} else if ([[notification getName] isEqualToString:NEW_USER]) {
-		[self userFormViewController].userVO = [[[UserVO alloc] init] autorelease];
-		[self userFormViewController].mode = ADD;
+		self.viewComponent.userVO = [[[UserVO alloc] init] autorelease];
+		self.viewComponent.mode = ADD;
 	}
-	[self sendNotification:SHOW_USER_FORM body:[self userFormViewController]];
+	[self sendNotification:SHOW_USER_FORM body:self.viewComponent];
 }
 
 -(void)dealloc {

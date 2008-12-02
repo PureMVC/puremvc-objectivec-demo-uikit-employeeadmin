@@ -14,14 +14,14 @@ static NSString *NAME = @"UserListMediator";
 
 @synthesize userProxy;
 
--(void)initializeMediator {
-	self.userProxy = [facade retrieveProxy:[UserProxy NAME]];
-	[self userListViewController].users = [userProxy users];
-	[self userListViewController].delegate = self;
+-(UserListViewController *)getViewComponent {
+	return viewComponent;
 }
 
--(UserListViewController *)userListViewController {
-	return viewComponent;
+-(void)initializeMediator {
+	self.userProxy = [facade retrieveProxy:[UserProxy NAME]];
+	self.viewComponent.users = [userProxy users];
+	self.viewComponent.delegate = self;
 }
 
 +(NSString *)NAME {
@@ -35,7 +35,7 @@ static NSString *NAME = @"UserListMediator";
 -(void)handleNotification:(id<INotification>)notification {
 	
 	if ([[notification getName] isEqualToString:USER_ADDED] || [[notification getName] isEqualToString:USER_UPDATED]) {
-		[[self userListViewController].tableView reloadData];
+		[self.viewComponent.tableView reloadData];
 		[self sendNotification:SHOW_USER_LIST];
 	}
 }
