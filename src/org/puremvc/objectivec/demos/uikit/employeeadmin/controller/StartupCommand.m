@@ -7,24 +7,23 @@
 //
 
 #import "StartupCommand.h"
-#import "EmployeeAdminView.h"
+#import "EmployeeAdmin.h"
 #import "ApplicationFacade.h"
 #import "UserListMediator.h"
 #import "UserProxy.h"
 #import "UserFormMediator.h"
-#import "NavigationMediator.h"
+#import "EmployeeAdminMediator.h"
 
 @implementation StartupCommand
 
 -(void)execute:(id<INotification>)notification {
 	[facade registerProxy:[UserProxy proxy]];
 	
-	EmployeeAdminView *app = [notification getBody];
-	ApplicationFacade *facade = [ApplicationFacade getInstance];
+	EmployeeAdmin *app = [notification getBody];
 	
-	[facade registerMediator:[NavigationMediator withViewComponent:app.navigationController]];
-	[facade registerMediator:[UserListMediator withViewComponent:app.userListViewController]];
-	[facade registerMediator:[UserFormMediator withViewComponent:app.userFormViewController]];
+	[facade registerMediator:[EmployeeAdminMediator withViewComponent:app]];
+	[facade registerMediator:[UserListMediator withViewComponent:app.userList]];
+	[facade registerMediator:[UserFormMediator withViewComponent:app.userForm]];
 }
 
 @end

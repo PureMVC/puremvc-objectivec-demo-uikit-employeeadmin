@@ -1,15 +1,15 @@
 //
-//  UserFormViewController.m
+//  UserForm.m
 //  PureMVC_ObjectiveC
 //
 //  PureMVC Port to ObjectiveC by Brian Knorr <brian.knorr@puremvc.org>
 //  PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
 //
 
-#import "UserFormViewController.h"
+#import "UserForm.h"
 
 
-@implementation UserFormViewController
+@implementation UserForm
 
 @synthesize userVO, firstNameTextField, lastNameTextField, emailTextField, usernameTextField, passwordTextField, confirmPasswordTextField, mode, delegate;
 
@@ -37,6 +37,7 @@
 			return 1;
 		}
 	}
+	return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

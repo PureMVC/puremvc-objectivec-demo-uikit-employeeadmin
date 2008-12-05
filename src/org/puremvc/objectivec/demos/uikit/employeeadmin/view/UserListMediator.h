@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Mediator.h"
 #import "UserProxy.h"
-#import "UserListViewController.h"
+#import "UserList.h"
 #import "ApplicationFacade.h"
 
 @interface UserListMediator : Mediator <UserListViewControllerDelegate>{

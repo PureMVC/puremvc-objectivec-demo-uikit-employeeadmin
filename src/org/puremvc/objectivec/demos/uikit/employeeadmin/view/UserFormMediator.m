@@ -12,12 +12,12 @@
 
 @synthesize userProxy;
 
--(UserFormViewController *)getViewComponent {
+-(UserForm *)getViewComponent {
 	return viewComponent;
 }
 
 -(void)initializeMediator {
-	self.userProxy = [facade retrieveProxy:[UserProxy NAME]];
+	self.userProxy = (UserProxy *)[facade retrieveProxy:[UserProxy NAME]];
 	self.viewComponent.delegate = self;
 }
 
@@ -26,30 +26,30 @@
 }
 
 -(NSArray *)listNotificationInterests {
-	return [NSArray arrayWithObjects:USER_SELECTED, NEW_USER, nil];
+	return [NSArray arrayWithObjects:UserSelected, NewUser, nil];
 }
 
 -(void)onAdd:(UserVO *)userVO {
 	[userProxy addItem:userVO];
-	[self sendNotification:USER_ADDED body:userVO];
+	[self sendNotification:UserAdded body:userVO];
 }
 
 -(void)onUpdate:(UserVO *)userVO {
 	[userProxy updateItem:userVO];
-	[self sendNotification:USER_UPDATED body:userVO];
+	[self sendNotification:UserUpdated body:userVO];
 }
 
 -(void)handleNotification:(id<INotification>)notification {
 	
 	self.viewComponent.view = nil;
-	if ([[notification getName] isEqualToString:USER_SELECTED]) {
+	if ([[notification getName] isEqualToString:UserSelected]) {
 		self.viewComponent.userVO = [notification getBody];
 		self.viewComponent.mode = EDIT;
-	} else if ([[notification getName] isEqualToString:NEW_USER]) {
+	} else if ([[notification getName] isEqualToString:NewUser]) {
 		self.viewComponent.userVO = [[[UserVO alloc] init] autorelease];
 		self.viewComponent.mode = ADD;
 	}
-	[self sendNotification:SHOW_USER_FORM body:self.viewComponent];
+	[self sendNotification:ShowUserForm body:self.viewComponent];
 }
 
 -(void)dealloc {

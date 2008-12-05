@@ -1,5 +1,5 @@
 //
-//  UserFormViewController.h
+//  UserForm.h
 //  PureMVC_ObjectiveC
 //
 //  PureMVC Port to ObjectiveC by Brian Knorr <brian.knorr@puremvc.org>
@@ -21,7 +21,7 @@ typedef enum {
 	ADD, EDIT
 } Mode;
 
-@interface UserFormViewController : UITableViewController {
+@interface UserForm : UITableViewController {
 	UserVO *userVO;
 	UITextField *firstNameTextField, *lastNameTextField, *emailTextField, *usernameTextField, *passwordTextField, *confirmPasswordTextField;
 	Mode mode;
@@ -32,5 +32,7 @@ typedef enum {
 @property(nonatomic, retain) UITextField *firstNameTextField, *lastNameTextField, *emailTextField, *usernameTextField, *passwordTextField, *confirmPasswordTextField;
 @property Mode mode;
 @property(nonatomic, retain) id<UserFormViewControllerDelegate> delegate;
+
+-(UITextField *)textFieldWithPlaceHolder:(NSString *)placeHolder frame:(CGRect)frame;
 
 @end

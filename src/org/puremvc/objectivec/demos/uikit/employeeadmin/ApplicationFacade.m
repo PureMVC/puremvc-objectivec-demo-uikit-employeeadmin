@@ -12,16 +12,16 @@
 @implementation ApplicationFacade
 
 -(void)startup:(id)app {
-	[self sendNotification:STARTUP body:app];
+	[self sendNotification:Startup body:app];
 }
 
 +(ApplicationFacade *)getInstance {
-	return [super getInstance];
+	return (ApplicationFacade *)[super getInstance];
 }
 
 -(void)initializeController {
 	[super initializeController];
-	[self registerCommand:STARTUP commandClassRef:[StartupCommand class]];
+	[self registerCommand:Startup commandClassRef:[StartupCommand class]];
 }
 
 @end

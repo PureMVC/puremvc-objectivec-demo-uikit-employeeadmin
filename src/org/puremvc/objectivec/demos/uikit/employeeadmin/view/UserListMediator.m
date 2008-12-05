@@ -8,19 +8,17 @@
 
 #import "UserListMediator.h"
 
-static NSString *NAME = @"UserListMediator";
-
 @implementation UserListMediator
 
 @synthesize userProxy;
 
--(UserListViewController *)getViewComponent {
+-(UserList *)getViewComponent {
 	return viewComponent;
 }
 
 -(void)initializeMediator {
-	self.userProxy = [facade retrieveProxy:[UserProxy NAME]];
-	self.viewComponent.users = [userProxy users];
+	self.userProxy = (UserProxy *)[facade retrieveProxy:[UserProxy NAME]];
+	self.viewComponent.users = userProxy.data;
 	self.viewComponent.delegate = self;
 }
 
@@ -29,25 +27,24 @@ static NSString *NAME = @"UserListMediator";
 }
 
 -(NSArray *)listNotificationInterests {
-	return [NSArray arrayWithObjects:USER_ADDED, USER_UPDATED, nil];
+	return [NSArray arrayWithObjects:UserAdded, UserUpdated, nil];
 }
 
 -(void)handleNotification:(id<INotification>)notification {
-	
-	if ([[notification getName] isEqualToString:USER_ADDED] || [[notification getName] isEqualToString:USER_UPDATED]) {
+	if ([[notification getName] isEqualToString:UserAdded] || [[notification getName] isEqualToString:UserUpdated]) {
 		[self.viewComponent.tableView reloadData];
-		[self sendNotification:SHOW_USER_LIST];
+		[self sendNotification:ShowUserList];
 	}
 }
 
 -(void)onSelect:(UserVO *)userVO {
-	[self sendNotification:USER_SELECTED body:userVO];
+	[self sendNotification:UserSelected body:userVO];
 }
 
 -(void)onDelete:(UserVO *)userVO {}
 
 -(void)onNew {
-	[self sendNotification:NEW_USER];
+	[self sendNotification:NewUser];
 }
 
 -(void)dealloc {

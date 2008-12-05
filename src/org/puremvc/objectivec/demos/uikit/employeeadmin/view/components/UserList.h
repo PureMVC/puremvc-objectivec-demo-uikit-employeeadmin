@@ -1,5 +1,5 @@
 //
-//  UserListViewController.h
+//  UserList.h
 //  PureMVC_ObjectiveC
 //
 //  PureMVC Port to ObjectiveC by Brian Knorr <brian.knorr@puremvc.org>
@@ -17,9 +17,7 @@
 
 @end
 
-
-
-@interface UserListViewController : UITableViewController {
+@interface UserList : UITableViewController {
 	NSArray *users;
 	id<UserListViewControllerDelegate> delegate;
 }

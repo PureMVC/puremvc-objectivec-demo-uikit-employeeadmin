@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "Facade.h"
 
-#define STARTUP @"STARTUP"
-#define NEW_USER @"NEW_USER"
-#define USER_SELECTED @"USER_SELECTED"
-#define USER_ADDED @"USER_ADDED"
-#define USER_UPDATED @"USER_UPDATED"
+#define Startup @"Startup"
+#define NewUser @"NewUser"
+#define UserSelected @"UserSelected"
+#define UserAdded @"UserAdded"
+#define UserUpdated @"UserUpdated"
 
-#define SHOW_USER_FORM @"SHOW_USER_FORM"
-#define SHOW_USER_LIST @"SHOW_USER_LIST"
+#define ShowUserForm @"ShowUserForm"
+#define ShowUserList @"ShowUserList"
 
 @interface ApplicationFacade : Facade {
 

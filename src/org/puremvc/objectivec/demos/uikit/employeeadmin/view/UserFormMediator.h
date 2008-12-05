@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Mediator.h"
 #import "UserProxy.h"
-#import "UserFormViewController.h"
+#import "UserForm.h"
 #import "ApplicationFacade.h"
 
 @interface UserFormMediator : Mediator <UserFormViewControllerDelegate> {

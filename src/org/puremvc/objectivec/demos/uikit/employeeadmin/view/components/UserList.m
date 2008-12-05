@@ -1,16 +1,16 @@
 //
-//  UserListViewController.m
+//  UserList.m
 //  PureMVC_ObjectiveC
 //
 //  PureMVC Port to ObjectiveC by Brian Knorr <brian.knorr@puremvc.org>
 //  PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
 //
 
-#import "UserListViewController.h"
+#import "UserList.h"
 
 #define USER_CELL_ID @"UserCellID"
 
-@implementation UserListViewController
+@implementation UserList
 
 @synthesize users, delegate;
 
@@ -20,12 +20,12 @@
 
 - (void)loadView {
 	[super loadView];
-	self.users = [NSArray array];
 	self.navigationItem.title = @"Users";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addClicked)];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	NSLog(@"what thee");
 	UITableViewCell *userCell = [tableView dequeueReusableCellWithIdentifier:USER_CELL_ID];
 	if (userCell == nil) {
 		userCell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:USER_CELL_ID] autorelease];
@@ -37,6 +37,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	NSLog(@"what thee count %d", [users count]);
 	return [users count];
 }
 

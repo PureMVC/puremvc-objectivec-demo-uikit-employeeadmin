@@ -12,7 +12,6 @@
 @interface UserProxy : Proxy {
 }
 
--(NSMutableArray *)users;
 -(void)addItem:(id)item;
 -(void)updateItem:(id)item;
 -(void)deleteItem:(id)item;
