@@ -29,7 +29,6 @@
 }
 
 -(void)addItem:(id)item {
-	NSLog(@"addItem");
 	[self.data addObject:item];
 }
 

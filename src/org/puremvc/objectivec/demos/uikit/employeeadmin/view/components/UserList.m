@@ -25,7 +25,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	NSLog(@"what thee");
 	UITableViewCell *userCell = [tableView dequeueReusableCellWithIdentifier:USER_CELL_ID];
 	if (userCell == nil) {
 		userCell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:USER_CELL_ID] autorelease];
@@ -37,7 +36,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	NSLog(@"what thee count %d", [users count]);
 	return [users count];
 }
 

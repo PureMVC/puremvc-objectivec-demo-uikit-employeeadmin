@@ -12,18 +12,19 @@
 
 @synthesize userProxy;
 
++(NSString *)NAME {
+	return @"UserListMediator";
+}
+
 -(UserList *)getViewComponent {
 	return viewComponent;
 }
 
 -(void)initializeMediator {
+	self.mediatorName = [UserListMediator NAME];
 	self.userProxy = (UserProxy *)[facade retrieveProxy:[UserProxy NAME]];
 	self.viewComponent.users = userProxy.data;
 	self.viewComponent.delegate = self;
-}
-
-+(NSString *)NAME {
-	return @"UserListMediator";
 }
 
 -(NSArray *)listNotificationInterests {

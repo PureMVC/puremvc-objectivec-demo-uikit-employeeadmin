@@ -24,70 +24,48 @@
 	self.tableView.scrollEnabled = NO;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	return 2;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	switch (section) {
-		case 0: {
-			return 3;
-		}
-		case 1: {
-			return 1;
-		}
-	}
-	return 0;
+	return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	UITableViewCell *cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:nil] autorelease];
-	
-	switch (indexPath.section) {
-		case 0: {
-			cell.selectionStyle = UITableViewCellSelectionStyleNone;
-			switch (indexPath.row) {
-				case 0: { //First and Last Name
-					self.firstNameTextField = [self textFieldWithPlaceHolder:@"First Name" frame:CGRectMake(10,12,135,25)];
-					firstNameTextField.text = userVO.firstName;
-					[cell.contentView addSubview:firstNameTextField];
-					
-					self.lastNameTextField = [self textFieldWithPlaceHolder:@"Last Name" frame:CGRectMake(150,12,135,25)];
-					lastNameTextField.text = userVO.lastName;
-					[cell.contentView addSubview:lastNameTextField];
-					break;
-				}
-				case 1: { //username and email
-					self.emailTextField = [self textFieldWithPlaceHolder:@"Email" frame:CGRectMake(10,12,155,25)];
-					emailTextField.text = userVO.email;
-					[cell.contentView addSubview:emailTextField];
-					
-					self.usernameTextField = [self textFieldWithPlaceHolder:@"Username*" frame:CGRectMake(170,12,115,25)];
-					usernameTextField.text = userVO.username;
-					if (mode == EDIT) {
-						usernameTextField.enabled = NO;
-					}
-					[cell.contentView addSubview:usernameTextField];
-					break;
-				}
-				case 2: { //password and confirm
-					self.passwordTextField = [self textFieldWithPlaceHolder:@"Password*" frame:CGRectMake(10,12,135,25)];
-					passwordTextField.secureTextEntry = YES;
-					passwordTextField.text = userVO.password;
-					[cell.contentView addSubview:passwordTextField];
-					
-					self.confirmPasswordTextField = [self textFieldWithPlaceHolder:@"Confirm*" frame:CGRectMake(150,12,135,25)];
-					confirmPasswordTextField.secureTextEntry = YES;
-					confirmPasswordTextField.text = userVO.password;
-					[cell.contentView addSubview:confirmPasswordTextField];
-					break;
-				}
-			}
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
+	switch (indexPath.row) {
+		case 0: { //First and Last Name
+			self.firstNameTextField = [self textFieldWithPlaceHolder:@"First Name" frame:CGRectMake(10,12,135,25)];
+			firstNameTextField.text = userVO.firstName;
+			[cell.contentView addSubview:firstNameTextField];
+			
+			self.lastNameTextField = [self textFieldWithPlaceHolder:@"Last Name" frame:CGRectMake(150,12,135,25)];
+			lastNameTextField.text = userVO.lastName;
+			[cell.contentView addSubview:lastNameTextField];
 			break;
 		}
-		case 1: {
-			cell.text = @"User Roles";
-			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		case 1: { //username and email
+			self.emailTextField = [self textFieldWithPlaceHolder:@"Email" frame:CGRectMake(10,12,155,25)];
+			emailTextField.text = userVO.email;
+			[cell.contentView addSubview:emailTextField];
+			
+			self.usernameTextField = [self textFieldWithPlaceHolder:@"Username*" frame:CGRectMake(170,12,115,25)];
+			usernameTextField.text = userVO.username;
+			if (mode == EDIT) {
+				usernameTextField.enabled = NO;
+			}
+			[cell.contentView addSubview:usernameTextField];
+			break;
+		}
+		case 2: { //password and confirm
+			self.passwordTextField = [self textFieldWithPlaceHolder:@"Password*" frame:CGRectMake(10,12,135,25)];
+			passwordTextField.secureTextEntry = YES;
+			passwordTextField.text = userVO.password;
+			[cell.contentView addSubview:passwordTextField];
+			
+			self.confirmPasswordTextField = [self textFieldWithPlaceHolder:@"Confirm*" frame:CGRectMake(150,12,135,25)];
+			confirmPasswordTextField.secureTextEntry = YES;
+			confirmPasswordTextField.text = userVO.password;
+			[cell.contentView addSubview:confirmPasswordTextField];
+			break;
 		}
 	}
 	return cell;

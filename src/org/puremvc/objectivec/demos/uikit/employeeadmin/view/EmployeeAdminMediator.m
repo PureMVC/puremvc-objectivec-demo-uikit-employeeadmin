@@ -13,15 +13,19 @@
 @implementation EmployeeAdminMediator
 
 +(NSString *)NAME {
-	return @"NavigationMediator";
-}
-
--(NSArray *)listNotificationInterests {
-	return [NSArray arrayWithObjects:ShowUserForm, ShowUserList, nil];
+	return @"EmployeeAdminMediator";
 }
 
 -(EmployeeAdmin *)getViewComponent {
 	return viewComponent;
+}
+
+-(void)initializeMediator {
+	self.mediatorName = [EmployeeAdminMediator NAME];
+}
+
+-(NSArray *)listNotificationInterests {
+	return [NSArray arrayWithObjects:ShowUserForm, ShowUserList, nil];
 }
 
 -(void)handleNotification:(id<INotification>)notification {
