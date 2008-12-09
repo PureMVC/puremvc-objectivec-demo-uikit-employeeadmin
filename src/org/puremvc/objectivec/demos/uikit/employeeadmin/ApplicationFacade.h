@@ -14,6 +14,7 @@
 #define UserSelected @"UserSelected"
 #define AddUser @"AddUser"
 #define UpdateUser @"UpdateUser"
+#define DeleteUser @"DeleteUser"
 #define ShowUserForm @"ShowUserForm"
 #define ShowUserList @"ShowUserList"
 #define ShowError @"ShowError"
@@ -21,7 +22,6 @@
 #define GetUsersSuccess @"GetUsersSuccess"
 
 @interface ApplicationFacade : Facade {
-
 }
 
 +(ApplicationFacade *)getInstance;

@@ -44,7 +44,9 @@
 	[self sendNotification:UserSelected body:userVO];
 }
 
--(void)onDelete:(UserVO *)userVO {}
+-(void)onDelete:(UserVO *)userVO {
+	[self sendNotification:DeleteUser body:userVO];
+}
 
 -(void)onNew {
 	[self sendNotification:NewUser];

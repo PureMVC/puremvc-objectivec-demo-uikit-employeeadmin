@@ -11,6 +11,7 @@
 #import "AddUserCommand.h"
 #import "UpdateUserCommand.h"
 #import "GetUsersCommand.h"
+#import "DeleteUserCommand.h"
 
 @implementation ApplicationFacade
 
@@ -28,6 +29,7 @@
 	[self registerCommand:AddUser commandClassRef:[AddUserCommand class]];
 	[self registerCommand:UpdateUser commandClassRef:[UpdateUserCommand class]];
 	[self registerCommand:GetUsers commandClassRef:[GetUsersCommand class]];
+	[self registerCommand:DeleteUser commandClassRef:[DeleteUserCommand class]];
 }
 
 @end

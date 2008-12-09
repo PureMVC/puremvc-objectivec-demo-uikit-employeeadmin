@@ -19,13 +19,13 @@
 @end
 
 @interface UserList : UITableViewController {
-	NSArray *users;
+	NSMutableArray *users;
 	id<UserListViewControllerDelegate> delegate;
 }
 
-@property(nonatomic, retain) NSArray *users;
+@property(nonatomic, retain) NSMutableArray *users;
 @property(nonatomic, retain) id<UserListViewControllerDelegate> delegate;
 
--(void)reloadUsers:(NSArray *)users;
+-(void)reloadUsers:(NSMutableArray *)users;
 
 @end

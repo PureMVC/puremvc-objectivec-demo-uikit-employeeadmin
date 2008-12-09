@@ -20,7 +20,8 @@
 
 - (void)loadView {
 	[super loadView];
-	self.users = [NSArray array];
+	self.users = [NSMutableArray array];
+	//self.navigationItem.leftBarButtonItem = self.editButtonItem;
 	self.navigationItem.title = @"Users";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addClicked)];
 }
@@ -30,9 +31,16 @@
 	[delegate onUserListDidAppear];
 }
 
--(void)reloadUsers:(NSArray *)_users {
+-(void)reloadUsers:(NSMutableArray *)_users {
 	self.users = _users;
 	[self.tableView reloadData];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+	UserVO *userVO = [[[users objectAtIndex:indexPath.row] retain] autorelease];
+	[users removeObjectAtIndex:indexPath.row];
+	[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+	[delegate onDelete:userVO];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
