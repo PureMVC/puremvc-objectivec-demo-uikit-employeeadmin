@@ -25,16 +25,17 @@
 }
 
 -(NSArray *)listNotificationInterests {
-	return [NSArray arrayWithObjects:ShowUserForm, ShowUserList, nil];
+	return [NSArray arrayWithObjects:ShowUserForm, ShowUserList, ShowError, nil];
 }
 
 -(void)handleNotification:(id<INotification>)notification {
 	
 	if ([[notification getName] isEqualToString:ShowUserForm]) {
 		[self.viewComponent showUserForm];
-	}
-	if ([[notification getName] isEqualToString:ShowUserList]) {
+	} else if ([[notification getName] isEqualToString:ShowUserList]) {
 		[self.viewComponent showUserList];
+	} else if ([[notification getName] isEqualToString:ShowError]) {
+		[self.viewComponent showError:[notification getBody]];
 	}
 }
 

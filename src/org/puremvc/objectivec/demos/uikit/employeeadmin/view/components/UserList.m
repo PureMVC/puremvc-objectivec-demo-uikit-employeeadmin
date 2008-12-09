@@ -20,8 +20,19 @@
 
 - (void)loadView {
 	[super loadView];
+	self.users = [NSArray array];
 	self.navigationItem.title = @"Users";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addClicked)];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+	[delegate onUserListDidAppear];
+}
+
+-(void)reloadUsers:(NSArray *)_users {
+	self.users = _users;
+	[self.tableView reloadData];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

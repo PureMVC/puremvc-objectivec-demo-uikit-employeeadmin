@@ -12,11 +12,13 @@
 #define Startup @"Startup"
 #define NewUser @"NewUser"
 #define UserSelected @"UserSelected"
-#define UserAdded @"UserAdded"
-#define UserUpdated @"UserUpdated"
-
+#define AddUser @"AddUser"
+#define UpdateUser @"UpdateUser"
 #define ShowUserForm @"ShowUserForm"
 #define ShowUserList @"ShowUserList"
+#define ShowError @"ShowError"
+#define GetUsers @"GetUsers"
+#define GetUsersSuccess @"GetUsersSuccess"
 
 @interface ApplicationFacade : Facade {
 

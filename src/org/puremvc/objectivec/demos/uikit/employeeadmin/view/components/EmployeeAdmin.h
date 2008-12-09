@@ -22,5 +22,6 @@
 
 -(void)showUserForm;
 -(void)showUserList;
+-(void)showError:(NSString *)message;
 
 @end

@@ -10,8 +10,6 @@
 
 @implementation UserFormMediator
 
-@synthesize userProxy;
-
 +(NSString *)NAME {
 	return @"UserFormMediator";
 }
@@ -22,7 +20,9 @@
 
 -(void)initializeMediator {
 	self.mediatorName = [UserFormMediator NAME];
-	self.userProxy = (UserProxy *)[facade retrieveProxy:[UserProxy NAME]];
+}
+
+-(void)onRegister {
 	self.viewComponent.delegate = self;
 }
 
@@ -31,17 +31,14 @@
 }
 
 -(void)onAdd:(UserVO *)userVO {
-	[userProxy addItem:userVO];
-	[self sendNotification:UserAdded body:userVO];
+	[self sendNotification:AddUser body:userVO];
 }
 
 -(void)onUpdate:(UserVO *)userVO {
-	[userProxy updateItem:userVO];
-	[self sendNotification:UserUpdated body:userVO];
+	[self sendNotification:UpdateUser body:userVO];
 }
 
 -(void)handleNotification:(id<INotification>)notification {
-	
 	self.viewComponent.view = nil;
 	if ([[notification getName] isEqualToString:UserSelected]) {
 		self.viewComponent.userVO = [notification getBody];
@@ -54,7 +51,6 @@
 }
 
 -(void)dealloc {
-	self.userProxy = nil;
 	[super dealloc];
 }
 

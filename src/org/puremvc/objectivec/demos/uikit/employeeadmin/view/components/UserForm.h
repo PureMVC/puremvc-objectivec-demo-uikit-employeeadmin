@@ -16,7 +16,6 @@
 
 @end
 
-
 typedef enum {
 	ADD, EDIT
 } Mode;

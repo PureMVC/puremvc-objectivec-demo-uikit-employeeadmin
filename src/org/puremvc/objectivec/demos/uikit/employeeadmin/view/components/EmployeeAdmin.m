@@ -32,6 +32,10 @@
 	[navigation popToRootViewControllerAnimated:YES];
 }
 
+-(void)showError:(NSString *)message {
+	[[[[UIAlertView alloc] initWithTitle:@"Error:" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil] autorelease] show];
+}
+
 - (void)dealloc {
 	self.navigation = nil;
 	self.userList = nil;

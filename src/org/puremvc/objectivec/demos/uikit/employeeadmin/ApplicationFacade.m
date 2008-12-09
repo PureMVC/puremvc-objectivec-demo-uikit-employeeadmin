@@ -8,6 +8,9 @@
 
 #import "ApplicationFacade.h"
 #import "StartupCommand.h"
+#import "AddUserCommand.h"
+#import "UpdateUserCommand.h"
+#import "GetUsersCommand.h"
 
 @implementation ApplicationFacade
 
@@ -22,6 +25,9 @@
 -(void)initializeController {
 	[super initializeController];
 	[self registerCommand:Startup commandClassRef:[StartupCommand class]];
+	[self registerCommand:AddUser commandClassRef:[AddUserCommand class]];
+	[self registerCommand:UpdateUser commandClassRef:[UpdateUserCommand class]];
+	[self registerCommand:GetUsers commandClassRef:[GetUsersCommand class]];
 }
 
 @end

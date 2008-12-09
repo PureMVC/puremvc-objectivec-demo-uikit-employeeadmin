@@ -14,6 +14,7 @@
 -(void)onSelect:(UserVO *)userVO;
 -(void)onDelete:(UserVO *)userVO;
 -(void)onNew;
+-(void)onUserListDidAppear;
 
 @end
 
@@ -24,5 +25,7 @@
 
 @property(nonatomic, retain) NSArray *users;
 @property(nonatomic, retain) id<UserListViewControllerDelegate> delegate;
+
+-(void)reloadUsers:(NSArray *)users;
 
 @end

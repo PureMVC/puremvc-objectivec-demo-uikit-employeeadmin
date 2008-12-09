@@ -8,14 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Mediator.h"
-#import "UserProxy.h"
 #import "UserList.h"
 #import "ApplicationFacade.h"
 
 @interface UserListMediator : Mediator <UserListViewControllerDelegate>{
-	UserProxy *userProxy;
 }
-
-@property(nonatomic, retain) UserProxy *userProxy;
 
 @end

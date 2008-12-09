@@ -78,14 +78,10 @@
 	userVO.username = usernameTextField.text;
 	userVO.password = passwordTextField.text;
 	userVO.confirmPassword = confirmPasswordTextField.text;
-	if ([userVO isValid]) {
-		if (mode == ADD) {
-			[delegate onAdd:userVO];
-		} else if (mode == EDIT) {
-			[delegate onUpdate:userVO];
-		}
-	} else {
-		[[[[UIAlertView alloc] initWithTitle:@"Error Saving User" message:@"Check required fields and that password and confirm are the same" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil] autorelease] show];
+	if (mode == ADD) {
+		[delegate onAdd:userVO];
+	} else if (mode == EDIT) {
+		[delegate onUpdate:userVO];
 	}
 }
 

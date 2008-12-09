@@ -10,8 +10,6 @@
 
 @implementation UserListMediator
 
-@synthesize userProxy;
-
 +(NSString *)NAME {
 	return @"UserListMediator";
 }
@@ -22,20 +20,24 @@
 
 -(void)initializeMediator {
 	self.mediatorName = [UserListMediator NAME];
-	self.userProxy = (UserProxy *)[facade retrieveProxy:[UserProxy NAME]];
-	self.viewComponent.users = userProxy.data;
+}
+
+-(void)onRegister {
 	self.viewComponent.delegate = self;
 }
 
 -(NSArray *)listNotificationInterests {
-	return [NSArray arrayWithObjects:UserAdded, UserUpdated, nil];
+	return [NSArray arrayWithObjects:GetUsersSuccess, nil];
 }
 
 -(void)handleNotification:(id<INotification>)notification {
-	if ([[notification getName] isEqualToString:UserAdded] || [[notification getName] isEqualToString:UserUpdated]) {
-		[self.viewComponent.tableView reloadData];
-		[self sendNotification:ShowUserList];
+	if ([[notification getName] isEqualToString:GetUsersSuccess]) {
+		[self.viewComponent reloadUsers:[notification getBody]];
 	}
+}
+
+-(void)onUserListDidAppear {
+	[self sendNotification:GetUsers];
 }
 
 -(void)onSelect:(UserVO *)userVO {
@@ -49,7 +51,6 @@
 }
 
 -(void)dealloc {
-	self.userProxy = nil;
 	[super dealloc];
 }
 
