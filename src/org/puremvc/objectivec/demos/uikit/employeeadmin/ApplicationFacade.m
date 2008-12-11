@@ -8,7 +8,7 @@
 
 #import "ApplicationFacade.h"
 #import "StartupCommand.h"
-#import "AddUserCommand.h"
+#import "CreateUserCommand.h"
 #import "UpdateUserCommand.h"
 #import "GetUsersCommand.h"
 #import "DeleteUserCommand.h"
@@ -26,7 +26,7 @@
 -(void)initializeController {
 	[super initializeController];
 	[self registerCommand:Startup commandClassRef:[StartupCommand class]];
-	[self registerCommand:AddUser commandClassRef:[AddUserCommand class]];
+	[self registerCommand:CreateUser commandClassRef:[CreateUserCommand class]];
 	[self registerCommand:UpdateUser commandClassRef:[UpdateUserCommand class]];
 	[self registerCommand:GetUsers commandClassRef:[GetUsersCommand class]];
 	[self registerCommand:DeleteUser commandClassRef:[DeleteUserCommand class]];

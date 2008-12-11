@@ -1,5 +1,5 @@
 //
-//  AddUserCommand.h
+//  CreateUserCommand.h
 //  PureMVC_ObjectiveC
 //
 //  PureMVC Port to ObjectiveC by Brian Knorr <brian.knorr@puremvc.org>
@@ -9,7 +9,7 @@
 #import "SimpleCommand.h"
 
 
-@interface AddUserCommand : SimpleCommand {
+@interface CreateUserCommand : SimpleCommand {
 	
 }
 

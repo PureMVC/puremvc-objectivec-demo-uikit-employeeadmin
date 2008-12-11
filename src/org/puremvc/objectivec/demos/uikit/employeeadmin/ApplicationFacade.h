@@ -12,7 +12,7 @@
 #define Startup @"Startup"
 #define NewUser @"NewUser"
 #define UserSelected @"UserSelected"
-#define AddUser @"AddUser"
+#define CreateUser @"CreateUser"
 #define UpdateUser @"UpdateUser"
 #define DeleteUser @"DeleteUser"
 #define ShowUserForm @"ShowUserForm"

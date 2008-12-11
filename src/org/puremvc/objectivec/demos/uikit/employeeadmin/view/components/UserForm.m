@@ -78,10 +78,10 @@
 	userVO.username = usernameTextField.text;
 	userVO.password = passwordTextField.text;
 	userVO.confirmPassword = confirmPasswordTextField.text;
-	if (mode == ADD) {
-		[delegate onAdd:userVO];
+	if (mode == NEW) {
+		[delegate onCreateUser:userVO];
 	} else if (mode == EDIT) {
-		[delegate onUpdate:userVO];
+		[delegate onUpdateUser:userVO];
 	}
 }
 

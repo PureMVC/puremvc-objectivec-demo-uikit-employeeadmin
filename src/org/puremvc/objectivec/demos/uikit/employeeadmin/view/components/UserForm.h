@@ -11,13 +11,13 @@
 
 @protocol UserFormViewControllerDelegate
 
--(void)onAdd:(UserVO *)userVO;
--(void)onUpdate:(UserVO *)userVO;
+-(void)onCreateUser:(UserVO *)userVO;
+-(void)onUpdateUser:(UserVO *)userVO;
 
 @end
 
 typedef enum {
-	ADD, EDIT
+	NEW, EDIT
 } Mode;
 
 @interface UserForm : UITableViewController {

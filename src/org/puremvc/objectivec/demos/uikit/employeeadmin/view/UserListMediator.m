@@ -36,19 +36,19 @@
 	}
 }
 
--(void)onUserListDidAppear {
+-(void)onGetUsers {
 	[self sendNotification:GetUsers];
 }
 
--(void)onSelect:(UserVO *)userVO {
+-(void)onUserSelected:(UserVO *)userVO {
 	[self sendNotification:UserSelected body:userVO];
 }
 
--(void)onDelete:(UserVO *)userVO {
+-(void)onDeleteUser:(UserVO *)userVO {
 	[self sendNotification:DeleteUser body:userVO];
 }
 
--(void)onNew {
+-(void)onNewUser {
 	[self sendNotification:NewUser];
 }
 

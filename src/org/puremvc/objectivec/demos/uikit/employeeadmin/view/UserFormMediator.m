@@ -30,11 +30,11 @@
 	return [NSArray arrayWithObjects:UserSelected, NewUser, nil];
 }
 
--(void)onAdd:(UserVO *)userVO {
-	[self sendNotification:AddUser body:userVO];
+-(void)onCreateUser:(UserVO *)userVO {
+	[self sendNotification:CreateUser body:userVO];
 }
 
--(void)onUpdate:(UserVO *)userVO {
+-(void)onUpdateUser:(UserVO *)userVO {
 	[self sendNotification:UpdateUser body:userVO];
 }
 
@@ -45,7 +45,7 @@
 		self.viewComponent.mode = EDIT;
 	} else if ([[notification getName] isEqualToString:NewUser]) {
 		self.viewComponent.userVO = [[[UserVO alloc] init] autorelease];
-		self.viewComponent.mode = ADD;
+		self.viewComponent.mode = NEW;
 	}
 	[self sendNotification:ShowUserForm body:self.viewComponent];
 }
