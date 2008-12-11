@@ -14,7 +14,7 @@
 	return @"UserListMediator";
 }
 
--(UserList *)getViewComponent {
+-(UserList *)viewComponent {
 	return viewComponent;
 }
 
@@ -31,8 +31,8 @@
 }
 
 -(void)handleNotification:(id<INotification>)notification {
-	if ([[notification getName] isEqualToString:GetUsersSuccess]) {
-		[self.viewComponent reloadUsers:[notification getBody]];
+	if ([[notification name] isEqualToString:GetUsersSuccess]) {
+		[self.viewComponent reloadUsers:[notification body]];
 	}
 }
 

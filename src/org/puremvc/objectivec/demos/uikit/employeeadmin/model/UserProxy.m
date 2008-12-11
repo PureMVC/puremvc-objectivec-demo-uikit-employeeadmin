@@ -24,7 +24,7 @@
 	return @"UserProxy";
 }
 
--(NSMutableArray *)getData {
+-(NSMutableArray *)data {
 	return data;
 }
 

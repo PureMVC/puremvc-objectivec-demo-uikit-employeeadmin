@@ -19,7 +19,7 @@
 -(void)execute:(id<INotification>)notification {
 	[facade registerProxy:[UserProxy proxy]];
 	
-	EmployeeAdmin *app = [notification getBody];
+	EmployeeAdmin *app = [notification body];
 	
 	[facade registerMediator:[EmployeeAdminMediator withViewComponent:app]];
 	[facade registerMediator:[UserListMediator withViewComponent:app.userList]];

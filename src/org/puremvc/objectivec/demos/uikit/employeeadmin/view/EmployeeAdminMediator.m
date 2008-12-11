@@ -16,7 +16,7 @@
 	return @"EmployeeAdminMediator";
 }
 
--(EmployeeAdmin *)getViewComponent {
+-(EmployeeAdmin *)viewComponent {
 	return viewComponent;
 }
 
@@ -30,12 +30,12 @@
 
 -(void)handleNotification:(id<INotification>)notification {
 	
-	if ([[notification getName] isEqualToString:ShowUserForm]) {
+	if ([[notification name] isEqualToString:ShowUserForm]) {
 		[self.viewComponent showUserForm];
-	} else if ([[notification getName] isEqualToString:ShowUserList]) {
+	} else if ([[notification name] isEqualToString:ShowUserList]) {
 		[self.viewComponent showUserList];
-	} else if ([[notification getName] isEqualToString:ShowError]) {
-		[self.viewComponent showError:[notification getBody]];
+	} else if ([[notification name] isEqualToString:ShowError]) {
+		[self.viewComponent showError:[notification body]];
 	}
 }
 

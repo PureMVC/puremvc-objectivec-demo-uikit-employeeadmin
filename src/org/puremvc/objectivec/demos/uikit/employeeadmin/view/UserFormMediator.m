@@ -14,7 +14,7 @@
 	return @"UserFormMediator";
 }
 
--(UserForm *)getViewComponent {
+-(UserForm *)viewComponent {
 	return viewComponent;
 }
 
@@ -40,10 +40,10 @@
 
 -(void)handleNotification:(id<INotification>)notification {
 	self.viewComponent.view = nil;
-	if ([[notification getName] isEqualToString:UserSelected]) {
-		self.viewComponent.userVO = [notification getBody];
+	if ([[notification name] isEqualToString:UserSelected]) {
+		self.viewComponent.userVO = [notification body];
 		self.viewComponent.mode = EDIT;
-	} else if ([[notification getName] isEqualToString:NewUser]) {
+	} else if ([[notification name] isEqualToString:NewUser]) {
 		self.viewComponent.userVO = [[[UserVO alloc] init] autorelease];
 		self.viewComponent.mode = NEW;
 	}
