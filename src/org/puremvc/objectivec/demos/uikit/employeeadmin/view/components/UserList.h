@@ -11,10 +11,10 @@
 
 @protocol UserListViewControllerDelegate
 
--(void)onUserSelected:(UserVO *)userVO;
--(void)onDeleteUser:(UserVO *)userVO;
--(void)onNewUser;
--(void)onGetUsers;
+-(void)userSelected:(UserVO *)userVO;
+-(void)deleteUserSelected:(UserVO *)userVO;
+-(void)newUserSelected;
+-(void)userListAppeared;
 
 @end
 

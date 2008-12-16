@@ -15,7 +15,7 @@
 -(void)execute:(id<INotification>)notification {
 	UserProxy *userProxy = (UserProxy *)[facade retrieveProxy:[UserProxy NAME]];
 	UserVO *userVO = [notification body];
-	[userProxy deleteItem:userVO];
+	[userProxy delete:userVO];
 }
 
 @end

@@ -17,7 +17,7 @@
 	UserProxy *userProxy = (UserProxy *)[facade retrieveProxy:[UserProxy NAME]];
 	UserVO *userVO = [notification body];
 	if ([userVO isValid]) {
-		[userProxy updateItem:userVO];
+		[userProxy update:userVO];
 		[facade sendNotification:ShowUserList];
 	} else {
 		[facade sendNotification:ShowError body:@"Invalid User"];

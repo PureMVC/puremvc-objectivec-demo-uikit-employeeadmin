@@ -17,9 +17,14 @@
 #define DeleteUser @"DeleteUser"
 #define ShowUserForm @"ShowUserForm"
 #define ShowUserList @"ShowUserList"
+#define	ShowUserRoles @"ShowUserRoles"
 #define ShowError @"ShowError"
 #define GetUsers @"GetUsers"
 #define GetUsersSuccess @"GetUsersSuccess"
+#define GetUserRoles @"GetUserRoles"
+#define GetUserRolesSuccess @"GetUserRolesSuccess"
+#define UpdateUserRoles @"UpdateUserRoles"
+#define RemoveUserRoles @"RemoveUserRoles"
 
 @interface ApplicationFacade : Facade {
 }

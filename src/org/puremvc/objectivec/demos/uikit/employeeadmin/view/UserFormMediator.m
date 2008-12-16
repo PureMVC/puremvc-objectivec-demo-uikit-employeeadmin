@@ -30,12 +30,16 @@
 	return [NSArray arrayWithObjects:UserSelected, NewUser, nil];
 }
 
--(void)onCreateUser:(UserVO *)userVO {
+-(void)createUserSelected:(UserVO *)userVO {
 	[self sendNotification:CreateUser body:userVO];
 }
 
--(void)onUpdateUser:(UserVO *)userVO {
+-(void)updateUserSelected:(UserVO *)userVO {
 	[self sendNotification:UpdateUser body:userVO];
+}
+
+-(void)userRolesSelected:(UserVO *)userVO {
+	[self sendNotification:ShowUserRoles body:userVO.username];
 }
 
 -(void)handleNotification:(id<INotification>)notification {

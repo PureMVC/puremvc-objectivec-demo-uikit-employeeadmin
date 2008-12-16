@@ -11,8 +11,9 @@
 
 @protocol UserFormViewControllerDelegate
 
--(void)onCreateUser:(UserVO *)userVO;
--(void)onUpdateUser:(UserVO *)userVO;
+-(void)createUserSelected:(UserVO *)userVO;
+-(void)updateUserSelected:(UserVO *)userVO;
+-(void)userRolesSelected:(UserVO *)userVO;
 
 @end
 

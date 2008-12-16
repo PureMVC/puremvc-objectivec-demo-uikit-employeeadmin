@@ -25,7 +25,7 @@
 }
 
 -(NSArray *)listNotificationInterests {
-	return [NSArray arrayWithObjects:ShowUserForm, ShowUserList, ShowError, nil];
+	return [NSArray arrayWithObjects:ShowUserForm, ShowUserList, ShowError, ShowUserRoles, RemoveUserRoles, nil];
 }
 
 -(void)handleNotification:(id<INotification>)notification {
@@ -36,6 +36,10 @@
 		[self.viewComponent showUserList];
 	} else if ([[notification name] isEqualToString:ShowError]) {
 		[self.viewComponent showError:[notification body]];
+	} else if ([[notification name] isEqualToString:ShowUserRoles]) {
+		[self.viewComponent showUserRoles:[notification body]];
+	} else if ([[notification name] isEqualToString:RemoveUserRoles]) {
+		[self.viewComponent removeUserRoles];
 	}
 }
 

@@ -23,12 +23,12 @@
 	self.users = [NSMutableArray array];
 	//self.navigationItem.leftBarButtonItem = self.editButtonItem;
 	self.navigationItem.title = @"Users";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onNewUserClicked)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newUser)];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
 	[super viewDidAppear:animated];
-	[delegate onGetUsers];
+	[delegate userListAppeared];
 }
 
 -(void)reloadUsers:(NSMutableArray *)_users {
@@ -40,7 +40,7 @@
 	UserVO *userVO = [[users objectAtIndex:indexPath.row] retain];
 	[users removeObjectAtIndex:indexPath.row];
 	[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-	[delegate onDeleteUser:userVO];
+	[delegate deleteUserSelected:userVO];
 	[userVO release];
 }
 
@@ -59,12 +59,12 @@
 	return [users count];
 }
 
--(void)onNewUserClicked {
-	[delegate onNewUser];
+-(void)newUser {
+	[delegate newUserSelected];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	[delegate onUserSelected:[users objectAtIndex:indexPath.row]];
+	[delegate userSelected:[users objectAtIndex:indexPath.row]];
 }
 
 - (void)dealloc {

@@ -11,13 +11,14 @@
 
 @implementation EmployeeAdmin
 
-@synthesize userList, userForm, navigation;
+@synthesize userList, userForm, userRoles, navigation;
 
 -(id)initWithFrame:(CGRect)frame {
 	if (self = [super initWithFrame:frame]) {
 		self.navigation = [[[UINavigationController alloc] init] autorelease];
 		self.userList = [[[UserList alloc] init] autorelease];
 		self.userForm = [[[UserForm alloc] init] autorelease];
+		self.userRoles = [[[UserRoles alloc] init] autorelease];
 		[navigation pushViewController:userList animated:NO];
 		[self addSubview:navigation.view];
 	}
@@ -32,14 +33,24 @@
 	[navigation popToRootViewControllerAnimated:YES];
 }
 
+-(void)showUserRoles:(NSString *)username {
+	userRoles.username = username;
+	[navigation pushViewController:userRoles animated:YES];
+}
+
 -(void)showError:(NSString *)message {
 	[[[[UIAlertView alloc] initWithTitle:@"Error:" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil] autorelease] show];
+}
+
+-(void)removeUserRoles {
+	[navigation popViewControllerAnimated:YES];
 }
 
 - (void)dealloc {
 	self.navigation = nil;
 	self.userList = nil;
 	self.userForm = nil;
+	self.userRoles = nil;
     [super dealloc];
 }
 
