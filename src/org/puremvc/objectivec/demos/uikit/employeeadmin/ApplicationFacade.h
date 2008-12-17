@@ -10,21 +10,21 @@
 #import "Facade.h"
 
 #define Startup @"Startup"
-#define NewUser @"NewUser"
-#define UserSelected @"UserSelected"
-#define CreateUser @"CreateUser"
-#define UpdateUser @"UpdateUser"
-#define DeleteUser @"DeleteUser"
+#define ShowNewUser @"ShowNewUser"
+#define ShowEditUser @"ShowEditUser"
 #define ShowUserForm @"ShowUserForm"
 #define ShowUserList @"ShowUserList"
 #define	ShowUserRoles @"ShowUserRoles"
+#define RemoveUserRoles @"RemoveUserRoles"
 #define ShowError @"ShowError"
+#define CreateUser @"CreateUser"
+#define UpdateUser @"UpdateUser"
+#define DeleteUser @"DeleteUser"
 #define GetUsers @"GetUsers"
 #define GetUsersSuccess @"GetUsersSuccess"
 #define GetUserRoles @"GetUserRoles"
 #define GetUserRolesSuccess @"GetUserRolesSuccess"
 #define UpdateUserRoles @"UpdateUserRoles"
-#define RemoveUserRoles @"RemoveUserRoles"
 
 @interface ApplicationFacade : Facade {
 }

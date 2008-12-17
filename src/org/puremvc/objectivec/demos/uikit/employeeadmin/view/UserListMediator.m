@@ -41,7 +41,7 @@
 }
 
 -(void)userSelected:(UserVO *)userVO {
-	[self sendNotification:UserSelected body:userVO];
+	[self sendNotification:ShowEditUser body:userVO];
 }
 
 -(void)deleteUserSelected:(UserVO *)userVO {
@@ -49,7 +49,7 @@
 }
 
 -(void)newUserSelected {
-	[self sendNotification:NewUser];
+	[self sendNotification:ShowNewUser];
 }
 
 -(void)dealloc {
