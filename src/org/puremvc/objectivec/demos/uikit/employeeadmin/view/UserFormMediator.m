@@ -27,7 +27,7 @@
 }
 
 -(NSArray *)listNotificationInterests {
-	return [NSArray arrayWithObjects:UserSelected, NewUser, nil];
+	return [NSArray arrayWithObjects:ShowEditUser, ShowNewUser, nil];
 }
 
 -(void)createUserSelected:(UserVO *)userVO {
@@ -44,10 +44,10 @@
 
 -(void)handleNotification:(id<INotification>)notification {
 	self.viewComponent.view = nil;
-	if ([[notification name] isEqualToString:UserSelected]) {
+	if ([[notification name] isEqualToString:ShowEditUser]) {
 		self.viewComponent.userVO = [notification body];
 		self.viewComponent.mode = EDIT;
-	} else if ([[notification name] isEqualToString:NewUser]) {
+	} else if ([[notification name] isEqualToString:ShowNewUser]) {
 		self.viewComponent.userVO = [[[UserVO alloc] init] autorelease];
 		self.viewComponent.mode = NEW;
 	}
