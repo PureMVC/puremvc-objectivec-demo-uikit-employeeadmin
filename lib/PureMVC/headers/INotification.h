@@ -1,17 +1,6 @@
-//
-//  Notification.h
-//  PureMVC_ObjectiveC
-//
-//  PureMVC Port to ObjectiveC by Brian Knorr <brian.knorr@puremvc.org>
-//  PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
-//
-
-#import <Foundation/Foundation.h>
-#import "INotification.h"
-
 /**
- * A base <code>INotification</code> implementation.
- * 
+ * The interface definition for a PureMVC Notification.
+ *
  * <P>
  * PureMVC does not rely upon underlying event models such 
  * as the one provided with in AppKit or UIKit</P>
@@ -30,23 +19,39 @@
  * instances communicate with each other and <code>IMediator</code>s 
  * by broadcasting <code>INotification</code>s.</P>
  * 
- * @see Observer
- * 
+ * @see IView, IObserver
  */
-@interface Notification : NSObject <INotification> {
-	NSString *name, *type;
-	id body;
-}
+@protocol INotification
 
-@property(nonatomic, retain) NSString *name;
-@property(nonatomic, retain) NSString *type;
-@property(nonatomic, retain) id body;
+/**
+ * Get the body of the <code>INotification</code> instance
+ */
+-(id)body;
 
-+(id)withName:(NSString *)name body:(id)body type:(NSString *)type;
-+(id)withName:(NSString *)nam;
-+(id)withName:(NSString *)name body:(id)body;
-+(id)withName:(NSString *)name type:(NSString *)type;
--(id)initWithName:(NSString *)name body:(id)body type:(NSString *)type;
+/**
+ * Get the name of the <code>INotification</code> instance. 
+ * No setter, should be set by constructor only
+ */
+-(NSString *)name;
+
+/**
+ * Get the type of the <code>INotification</code> instance
+ */
+-(NSString *)type;
+
+/**
+ * Set the body of the <code>INotification</code> instance
+ */
+-(void)setBody:(id)body;
+
+/**
+ * Set the type of the <code>INotification</code> instance
+ */
+-(void)setType:(NSString *)type;
+
+/**
+ * Get the string representation of the <code>INotification</code> instance
+ */
 -(NSString *)description;
 
 @end
