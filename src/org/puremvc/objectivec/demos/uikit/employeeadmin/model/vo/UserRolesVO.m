@@ -13,7 +13,7 @@
 
 @synthesize username, roles;
 
-+(id)withUsername:(NSString *)username roles:(NSArray *)roles {
++(id)withUsername:(NSString *)username roles:(NSMutableArray *)roles {
 	UserRolesVO *userRolesVO = [[[UserRolesVO alloc] init] autorelease];
 	userRolesVO.username = username;
 	userRolesVO.roles = roles;

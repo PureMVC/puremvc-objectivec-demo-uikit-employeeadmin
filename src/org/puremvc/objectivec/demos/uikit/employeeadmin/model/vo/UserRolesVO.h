@@ -9,11 +9,11 @@
 
 @interface UserRolesVO : NSObject {
 	NSString *username;
-	NSArray *roles;
+	NSMutableArray *roles;
 }
 
 @property(nonatomic, retain) NSString *username;
-@property(nonatomic, retain) NSArray *roles;
+@property(nonatomic, retain) NSMutableArray *roles;
 
 +(id)withUsername:(NSString *)username roles:(NSArray *)roles;
 -(BOOL)hasRole:(NSString *)role;

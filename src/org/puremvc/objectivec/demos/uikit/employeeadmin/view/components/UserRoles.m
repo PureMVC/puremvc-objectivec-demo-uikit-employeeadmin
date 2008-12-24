@@ -56,23 +56,18 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	NSString *role = [[UserRolesEnum list] objectAtIndex:indexPath.row];
 	UITableViewCell *roleCell = [tableView cellForRowAtIndexPath:indexPath];
 	if (roleCell.accessoryType == UITableViewCellAccessoryCheckmark) {
 		roleCell.accessoryType = UITableViewCellAccessoryNone;
+		[userRolesVO.roles removeObject:role];
 	} else {
 		roleCell.accessoryType = UITableViewCellAccessoryCheckmark;
+		[userRolesVO.roles addObject:role];
 	}
 }
 
 -(void)saveRoles {
-	NSMutableArray *roles = [NSMutableArray array];
-	for (int i = 0; i<[[UserRolesEnum list] count]; i++) {
-		UITableViewCell *roleCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-		if (roleCell.accessoryType == UITableViewCellAccessoryCheckmark) {
-			[roles addObject:roleCell.text];
-		}
-	}
-	userRolesVO.roles = roles;
 	[delegate updateUserRolesSelected:userRolesVO];
 }
 

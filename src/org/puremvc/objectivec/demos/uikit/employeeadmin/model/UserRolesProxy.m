@@ -14,9 +14,9 @@
 	[super initializeProxy];
 	self.proxyName = [UserRolesProxy NAME];
 	self.data = [NSMutableArray array];
-	[self update:[UserRolesVO withUsername:@"lstooge" roles:[NSArray arrayWithObjects:@"Payroll", @"Employee Benefits", nil]]];
-	[self update:[UserRolesVO withUsername:@"cstooge" roles:[NSArray arrayWithObjects:@"Accounts Payable", @"Accounts Receivable", @"General Ledger", nil]]];
-	[self update:[UserRolesVO withUsername:@"mstooge" roles:[NSArray arrayWithObjects:@"Inventory", @"Production", @"Sales", @"Shipping", nil]]];
+	[self update:[UserRolesVO withUsername:@"lstooge" roles:[NSMutableArray arrayWithObjects:@"Payroll", @"Employee Benefits", nil]]];
+	[self update:[UserRolesVO withUsername:@"cstooge" roles:[NSMutableArray arrayWithObjects:@"Accounts Payable", @"Accounts Receivable", @"General Ledger", nil]]];
+	[self update:[UserRolesVO withUsername:@"mstooge" roles:[NSMutableArray arrayWithObjects:@"Inventory", @"Production", @"Sales", @"Shipping", nil]]];
 }
 
 +(NSString *)NAME {
@@ -34,7 +34,7 @@
 			return userRolesVO;
 		}
 	}
-	return [UserRolesVO withUsername:username roles:[NSArray array]];
+	return [UserRolesVO withUsername:username roles:[NSMutableArray array]];
 }
 
 -(void)update:(id)item {
