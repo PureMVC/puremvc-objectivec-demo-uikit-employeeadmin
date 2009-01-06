@@ -1,0 +1,70 @@
+Installation
+
+Download the latest version of the Demo distribution and unzip to a directory on your system, such as
+
+    ~/Dev
+
+This will create a folder like this
+
+    ~/Dev/Demo_ObjectiveC_UIKit_EmployeeAdmin_X_Y
+
+Where X_Y is the demo version number.
+
+Inside you will find
+
+    * The source code: src/org/puremvc/objectivec/...
+    * The PureMVC static library used by the demo app: lib/PureMVC/PureMVC_ObjectiveC_X_Y.a
+    * The PureMVC header files used by the demo app: lib/PureMVC/headers
+
+Setup, Build, and Run the Demo using XCode:
+
+Create a new XCode Project called 'EmployeeAdmin' in XCode.  Make sure to choose the template
+
+    iPhone OS : Application : Window-Based Application
+    
+From the Groups & Files pane, right click on the Frameworks Folder and select
+
+    Add -> Existing Files...
+
+Browse and Add
+
+    ~/Dev/Demo_ObjectiveC_UIKit_EmployeeAdmin_X_Y/lib/PureMVC/PureMVC_ObjectiveC_X_Y.a
+
+Besides the Frameworks folder you should see the static library (.a) listed in the EmployeeAdmin target under the folder, Link Binary With Libraries
+
+From the Groups & Files pane, double click the EmployeeAdmin target or right click and select, Get Info, and then click on the Build tab.
+
+Under the setting, Header Search Paths, add "~/Dev/Demo_ObjectiveC_UIKit_EmployeeAdmin_X_Y/lib/PureMVC/headers"
+
+From the Groups & Files pane, right click on the Classes folder and select
+
+    Add -> Existing Files...
+
+Browse and Add
+
+    ~/Dev/PureMVC/Demo_ObjectiveC_UIKit_EmployeeAdmin/trunk/src/org/puremvc/objectivec/demos/uikit/employeeadmin
+    
+Open the EmployeeAdminAppDelegate.m in XCode editing window and update the code as follows, then click Build and Go!
+
+
+#import "EmployeeAdminAppDelegate.h"
+#import "ApplicationFacade.h"
+#import "EmployeeAdmin.h"
+
+@implementation EmployeeAdminAppDelegate
+
+@synthesize window;
+
+- (void)applicationDidFinishLaunching:(UIApplication *)application {    
+  EmployeeAdmin *employeeAdmin = [[[EmployeeAdmin alloc] initWithFrame:[window frame]] autorelease];
+	[[ApplicationFacade getInstance] startup:employeeAdmin];
+	[window addSubview:employeeAdmin];
+  [window makeKeyAndVisible];
+}
+
+- (void)dealloc {
+    [window release];
+    [super dealloc];
+}
+
+@end
