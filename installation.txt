@@ -16,19 +16,20 @@ Inside you will find
     * The PureMVC static library used by the demo app: lib/PureMVC/PureMVC_ObjectiveC_X_Y.a
     * The PureMVC header files used by the demo app: lib/PureMVC/headers
 
+
 Setup, Build, and Run the Demo using XCode:
 
 Create a new XCode Project called 'EmployeeAdmin' in XCode.  Make sure to choose the template
 
     iPhone OS : Application : Window-Based Application
     
-From the Groups & Files pane, right click on the Frameworks Folder and select
+From the Groups & Files pane, right click on the Frameworks folder and select
 
     Add -> Existing Files...
 
 Browse and Add
 
-    ~/Dev/Demo_ObjectiveC_UIKit_EmployeeAdmin_X_Y/lib/PureMVC/PureMVC_ObjectiveC_X_Y.a
+  ~/Dev/Demo_ObjectiveC_UIKit_EmployeeAdmin_X_Y/lib/PureMVC/PureMVC_ObjectiveC_X_Y.a
 
 Besides the Frameworks folder you should see the static library (.a) listed in the EmployeeAdmin target under the folder, Link Binary With Libraries
 
