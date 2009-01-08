@@ -43,7 +43,7 @@ From the Groups & Files pane, right click on the Classes folder and select
 
 Browse and Add
 
-    ~/Dev/PureMVC/Demo_ObjectiveC_UIKit_EmployeeAdmin/trunk/src/org/puremvc/objectivec/demos/uikit/employeeadmin
+    ~/Dev/Demo_ObjectiveC_UIKit_EmployeeAdmin_X_Y/src/org/puremvc/objectivec/demos/uikit/employeeadmin
     
 Open the EmployeeAdminAppDelegate.m in XCode editing window and update the code as follows, then click Build and Go!
 
