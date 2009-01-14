@@ -2,7 +2,7 @@ PureMVC Demo for ObjectiveC – Employee Admin
 Ported from AS3 by Brian Knorr <brian.knorr@puremvc.org>
 Your reuse is governed by the Creative Commons Attribution 3.0 License
 --------------------------------------------------------------------------
-Release Date: 12/16/08
+Release Date: 1/14/08
     Platform: ObjectiveC / UIKit 
      Version: 1 
     Revision: 0
